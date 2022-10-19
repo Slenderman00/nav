@@ -15,7 +15,7 @@ class plugin(plugintemplate):
         self.tool = Tool(
             name="Example",
             uri="/example/",
-            icon="fa fa-question",
+            icon="",
             description="Example plugin",
             priority=0,
             display=True,
