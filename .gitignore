@@ -40,3 +40,4 @@ python/nav/web/static/css
 python/nav/web/static/js/node_modules
 python/nav/web/static/js/require_config.dev.js
 python/nav/web/static/js/coverage
+extract.py
