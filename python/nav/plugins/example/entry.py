@@ -15,7 +15,7 @@ class plugin(plugintemplate):
         self.tool = Tool(
             name="Example",
             uri="/example/",
-            icon="",
+            icon="/example/static/icon.png",
             description="Example plugin",
             priority=0,
             display=True,
