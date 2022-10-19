@@ -1,10 +1,10 @@
 import os
 from glob import glob
 from setuptools import setup, find_packages
+import shutil
 from distutils.command.build import build
 
 TOP_SRCDIR = os.path.abspath(os.path.dirname(__file__))
-
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
@@ -27,7 +27,7 @@ def find_scripts():
 build.sub_commands = [('build_sass', None)] + build.sub_commands
 
 
-setup(
+result = setup(
     setup_requires=['libsass', 'setuptools_scm'],
     python_requires=">=3.7",
     use_scm_version=True,
@@ -62,3 +62,4 @@ setup(
     },
     zip_safe=False,
 )
+

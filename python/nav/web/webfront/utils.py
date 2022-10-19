@@ -27,6 +27,7 @@ from nav.models.msgmaint import Message
 from nav.models.event import AlertHistory
 from nav.models.manage import Netbox
 from nav.models.profiles import AccountTool
+from nav.pluginmanager import getTools
 
 _logger = logging.getLogger('nav.web.tools.utils')
 
@@ -127,6 +128,11 @@ def tool_list(account):
 
                     if account.has_perm('web_access', tool.uri):
                         _tool_list.append(tool)
+    
+    for tool in getTools():
+        if account.has_perm('web_access', tool.uri):
+            _tool_list.append(tool)
+
     _tool_list.sort()
     return _tool_list
 
