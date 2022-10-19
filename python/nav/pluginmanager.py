@@ -73,12 +73,8 @@ class plugintemplate:
         self.description = None
         self.author = None
         self.email = None
-        self.entrypoint = None
         self.urls = None
         self.tool = None
-
-    def getEntryPoint(self):
-        return self.entrypoint
     
     def returnPath(self):
         path = re_path(r'^%s/' % self.urlprefix, include(self.urls))

@@ -10,7 +10,6 @@ class plugin(plugintemplate):
         self.author = "John Doe"
         self.email = ""
         self.urls = "nav.plugins.example.urls"
-        self.entrypoint = "nav.plugins.example.entry"
         self.urlprefix = "example"
         self.tool = Tool(
             name="Example",
