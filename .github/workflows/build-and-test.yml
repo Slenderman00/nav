@@ -22,7 +22,6 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt', '**/requirements/*.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-
       - name: "Cache tox environments"
         uses: actions/cache@v2
         id: tox-cache
@@ -31,7 +30,6 @@ jobs:
           key: ${{ runner.os }}-tox-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt', '**/requirements/*.txt', 'tox.ini') }}
           restore-keys: |
             ${{ runner.os }}-tox-${{ matrix.python-version }}-
-
       - name: "Set up Python ${{ matrix.python-version }}"
         uses: actions/setup-python@v2
         with:
@@ -43,29 +41,24 @@ jobs:
           echo "PGHOST=localhost" >> $GITHUB_ENV
           echo "PGUSER=nav" >> $GITHUB_ENV
           echo "PGPASSWORD=password" >> $GITHUB_ENV
-
       - name: "Update APT package lists"
         run: |
           sudo apt-get update -y
-
       - name: "Install test runner dependencies"
         run: |
           set -xe
           python -m pip install --upgrade pip setuptools wheel tox tox-gh-actions coverage virtualenv snmpsim
           sudo apt-get install -y nbtscan
-
       # virtualenv seems to currently be embedding a broken version of
       # setuptools (2022-03-31).  this ensures these embedded wheels are always
       # up to date, but can potentially be removed again down the road.
       - name: "Upgrade embedded virtualenv wheels"
         run: |
           virtualenv --upgrade-embed-wheel
-
       - name: "Install libraries needed to build external dependencies"
         run: |
           set -xe
           sudo apt-get install -y libldap2-dev libsasl2-dev libtidy5deb1 libsnmp35
-
       - uses: browser-actions/setup-chrome@latest
       - run: chrome --version
       - uses: nanasess/setup-chromedriver@master
@@ -83,7 +76,6 @@ jobs:
           ulimit -c unlimited
           sudo sysctl -w kernel.core_pattern=/tmp/core-%e.%p.%h.%t
           python -m tox
-
       - name: Upload Selenium driver logs (${{ matrix.python-version }})
         if: always()
         uses: actions/upload-artifact@v2
@@ -91,7 +83,6 @@ jobs:
           name: pytest-logs
           path: |
             /tmp/pytest-of-runner
-
       - name: "Upload coverage to Codecov"
         if: "github.repository_owner == 'Uninett'"
         uses: codecov/codecov-action@v2
@@ -106,7 +97,6 @@ jobs:
           name: test-reports
           path: |
             reports/**/*
-
       - name: Upload core dumps (${{ matrix.python-version }})
         if: failure()
         uses: actions/upload-artifact@v2
@@ -114,7 +104,6 @@ jobs:
           name: core-dumps
           path: |
             /tmp/core-*
-
       - name: Print stack traces of core dumps (${{ matrix.python-version }})
         if: failure()
         run: |
@@ -127,7 +116,6 @@ jobs:
             gdb -ex bt "$program" "$core"
             echo
           done
-
   javascript:
     name: "Test Javascript code"
     runs-on: ubuntu-latest
@@ -142,7 +130,6 @@ jobs:
         run: |
           cd python/nav/web/static/js
           npm ci
-
       - name: npm test
         uses: GabrielBB/xvfb-action@v1
         with:
@@ -156,4 +143,3 @@ jobs:
           name: javascript-test-reports
           path: |
             reports/**/*
-
