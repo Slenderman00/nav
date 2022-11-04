@@ -2,9 +2,9 @@
  Network Administration Visualized
 ===================================
 
-.. image:: https://img.shields.io/github/workflow/status/Uninett/nav/Build%20NAV%20and%20run%20full%20test%20suite
+.. image:: https://img.shields.io/github/workflow/status/Slenderman00/nav/Build%20NAV%20and%20run%20full%20test%20suite
    :alt: GitHub Workflow Status
-   :target: https://github.com/Uninett/nav/actions
+   :target: https://github.com/Slenderman00/nav/actions
 .. image:: https://codecov.io/gh/Uninett/nav/branch/master/graph/badge.svg?token=0o6wdrEwne
    :alt: Code coverage
    :target: https://codecov.io/gh/Uninett/nav
