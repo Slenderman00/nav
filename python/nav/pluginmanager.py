@@ -20,7 +20,6 @@ import importlib
 import os
 import nav
 from django.urls import re_path, include
-from django.conf.urls import url
 import django.http
 from django.http import HttpResponse, FileResponse
 from django.views.generic import View
@@ -82,7 +81,7 @@ class plugintemplate:
 
     #python badness, but it works. might be replaced with a lambda expression
     def returnStaticContentPath(self):
-        path = url(r'^%s/' % self.urlprefix + r'static', self.returnStaticContentView(self).as_view(), name='staticContent')
+        path = re_path(r'^%s/' % self.urlprefix + r'static', self.returnStaticContentView(self).as_view(), name='staticContent')
         return path
 
     #since apache is serving the static content, we need to pretend that we are apache
