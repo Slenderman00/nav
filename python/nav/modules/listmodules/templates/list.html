@@ -9,11 +9,31 @@
     {% include 'nav_header.html' %}
 {% endwith %}
 
+<!--include style.css from static/style.css-->
+<link rel="stylesheet" type="text/css" href="static/style.css">
 
 <center>
     <ul>
-    {% for tool in tools %}
-        <li><h3>{{ tool.name }} | {{ tool.description}}</h3></li>
+    {% for module in modules %}
+        <li>
+            <div class="cardBody">
+                <!-- there should be 2 rows of divs one containing the icon and one containg info-->
+                <div class="cardIcon">
+                    <img src="{{ module.tool.icon }}" alt="icon" width="100" height="100">
+                </div>
+                <div class="cardInfo">
+                    <h3>{{ module.tool.name }}</h3>
+                    <p>{{ module.tool.description }}</p>
+                </div>
+                <div class="cardAuthor">
+                    <h3>{{ module.author }}</h3>
+                    <p>{{ module.email }}</p>
+                </div>
+                <div class="cardVersionBar">
+                    {{ module.version }}
+                </div>
+            </div>
+        </li>
     {% endfor %}
     </ul>
 </center>

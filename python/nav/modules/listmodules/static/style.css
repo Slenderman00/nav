@@ -1,0 +1,76 @@
+.cardBody {
+    margin-bottom: 10px;
+    /* the card parts are flex items */
+    display: flex;
+    /* card max width is 960px */
+    max-width: 960px;
+    /* grey thin border */
+    border: 1px solid #e0e0e0;
+    /* rounded corners */
+    border-radius: 5px;
+    /* white background */
+    background-color: #fff; 
+}
+
+.cardIcon {
+    /* flex left */
+    flex: 0 0 auto;
+    /* icon size */
+    width: 100px;
+    height: 100px;
+    /* icon position */
+    float: left;
+    /* icon margin */
+    margin: 10px;
+
+}
+
+.cardInfo {
+    /* flex right */
+    flex: 1 1 auto;
+    /* description max width */
+    width: 100%;
+    /* description margin */
+    margin: 10px;
+    /* left text align */
+    text-align: left;
+}
+
+.cardAuthor {
+    width: 250px;
+    /* flex left */
+    flex: 0 0 auto;
+    /* author height */
+    height: 100px;
+    /* author margin */
+    margin-right: 10px;
+    margin-top: 10px;
+    /* author padding */
+    padding: 10px;
+    /* the left side of the border is grey */
+    border-left: 1px solid #e0e0e0;
+}
+
+.cardVersionBar {
+    /* this is a flex item */
+    flex: 0 0 auto;
+    /* bar width */
+    width: 100px;
+    /* bar height */
+    height: 100px;
+    /* bar margin */
+    margin-right: 10px;
+    margin-top: 10px;
+    /* bar border radius */
+    border-radius: 0 5px 5px 0;
+    /* the left side of the border is grey */
+    border-left: 1px solid #e0e0e0;
+    /* text should be bold and centered horizontally and vertically */
+    padding-top: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+li, ul {
+    list-style-type: none;
+}

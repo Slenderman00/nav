@@ -5,7 +5,7 @@ class module(moduletemplate):
     def __init__(self):
         super().__init__()
         self.name = "example"
-        self.version = "1.0"
+        self.version = "0.0"
         self.description = "Example plugin"
         self.author = "John Doe"
         self.email = ""
