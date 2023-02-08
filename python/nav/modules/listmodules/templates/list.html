@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 {% block base_content %}
 
-{% with tool=current_user_data.tools|get_tool:'List Plugins' %}
+{% with tool=current_user_data.tools|get_tool:'List Modules' %}
     {% include 'nav_header.html' %}
 {% endwith %}
 

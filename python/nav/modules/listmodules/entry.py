@@ -4,7 +4,7 @@ from nav.web.webfront.utils import Tool
 class plugin(plugintemplate):
     def __init__(self):
         super().__init__()
-        self.name = "listplugins"
+        self.name = "listmodules"
         self.version = "1.0"
         self.description = "A list of all installed plugins"
         self.author = "Joar Heimonen"
