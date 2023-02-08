@@ -4,13 +4,13 @@ from django.views.generic import View
 from django.shortcuts import render
 from django.template import Context, Template
 
-from nav.pluginmanager import getTemplate, getTools
+from nav.modulemanager import getTemplate, getTools
 from nav.django.context_processors import account_processor
 from nav.web.utils import get_navpath_root
 
 
 #get template
-listtemp = getTemplate('listplugins', 'list.html')
+listtemp = getTemplate('listmodules', 'list.html')
 
 
 # create a view class

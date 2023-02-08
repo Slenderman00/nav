@@ -27,9 +27,9 @@ from nav.web import refresh_session
 from nav.web.webfront.urls import urlpatterns
 from nav.web.styleguide import styleguide_index
 from nav.django.views import force_500
-from nav.pluginmanager import pluginmanager
+from nav.modulemanager import modulemanager
 
-pluginpatterns = pluginmanager()
+modulepatterns = modulemanager()
 
 _logger = logging.getLogger(__name__)
 
@@ -72,7 +72,7 @@ urlpatterns += [
     re_path(r'^500/', force_500),
 ]
 
-urlpatterns += pluginpatterns.getUrlPatterns()
+urlpatterns += modulepatterns.getUrlPatterns()
 
 # Load local url-config
 _local_python_dir = os.path.join(find_config_dir() or '.', 'python')

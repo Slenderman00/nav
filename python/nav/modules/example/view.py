@@ -4,7 +4,7 @@ from django.views.generic import View
 from django.shortcuts import render
 from django.template import Context, Template
 
-from nav.pluginmanager import getTemplate
+from nav.modulemanager import getTemplate
 
 #get template
 template1 = getTemplate('example', 'template1.html')

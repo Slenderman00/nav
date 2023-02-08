@@ -27,44 +27,44 @@ from django.shortcuts import render
 from django.http import Http404
 from django.template import Template
 
-PLUGIN_DIR = Path(os.path.dirname(nav.__file__), 'plugins')
+MODULE_DIR = Path(os.path.dirname(nav.__file__), 'modules')
 
-def getTemplate(pluginName, path):
-    pluginPath = Path(PLUGIN_DIR, pluginName, 'templates')
-    templatePath = Path(pluginPath, path)
+def getTemplate(moduleName, path):
+    modulePath = Path(MODULE_DIR, moduleName, 'templates')
+    templatePath = Path(modulePath, path)
     if templatePath.is_file():
         return Template(Path(templatePath).read_text())
 
 def getTools():
     tools = []
-    for plugin in getPlugins():
-        tools.append(plugin.tool)
+    for module in getModules():
+        tools.append(module.tool)
     return tools
 
-#TODO: implement some sort of database and interface to allow disabling and enabling of plugins
-def getPlugins():
-    plugins = []
-    for plugin in PLUGIN_DIR.iterdir():
-        if plugin.is_dir():
-            if "__" not in plugin.name: 
-                plugins.append((importlib.import_module(f'nav.plugins.{plugin.name}.entry')).plugin())
-    return plugins
+#TODO: implement some sort of database and interface to allow disabling and enabling of modules
+def getModules():
+    modules = []
+    for module in MODULE_DIR.iterdir():
+        if module.is_dir():
+            if "__" not in module.name: 
+                modules.append((importlib.import_module(f'nav.modules.{module.name}.entry')).module())
+    return modules
 
-class pluginmanager:
+class modulemanager:
     def __init__(self):
-        self.plugins = getPlugins()
+        self.modules = getModules()
         
     def getUrlPatterns(self):
         patterns = []
-        for plugin in self.plugins:
+        for module in self.modules:
             try:
-                patterns.append(plugin.returnPath())
-                patterns.append(plugin.returnStaticContentPath())
+                patterns.append(module.returnPath())
+                patterns.append(module.returnStaticContentPath())
             except ImportError:
                 pass
         return patterns
 
-class plugintemplate:
+class moduletemplate:
     def __init__(self):
         self.name = None
         self.urlprefix = None
@@ -85,14 +85,14 @@ class plugintemplate:
         return path
 
     #since apache is serving the static content, we need to pretend that we are apache
-    def returnStaticContentView(self, plugin):
+    def returnStaticContentView(self, module):
         class staticContentView(View):
             def __init__(self):
                 pass
             
             def getFile(self, path):
                 #TODO: make sure path is not escaping the plugin directory
-                path = Path(PLUGIN_DIR, plugin.name, 'static', path.split('/static/')[1])
+                path = Path(MODULE_DIR, module.name, 'static', path.split('/static/')[1])
                 if path.is_file():
                     return open(path, 'r')
                 return False
