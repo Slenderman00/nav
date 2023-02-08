@@ -9,7 +9,7 @@ class module(moduletemplate):
         self.description = "Example plugin"
         self.author = "John Doe"
         self.email = ""
-        self.urls = "nav.plugins.example.urls"
+        self.urls = "nav.modules.example.urls"
         self.urlprefix = "example"
         self.tool = Tool(
             name="Example",
