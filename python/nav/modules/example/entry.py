@@ -23,16 +23,16 @@ class module(moduletemplate):
         super().__init__()
         self.name = "example"
         self.version = "0.0"
-        self.description = "Example plugin"
+        self.description = "Example module"
         self.author = "John Doe"
         self.email = "johndoe@mail.url"
         self.urls = "nav.modules.example.urls"
         self.urlprefix = "example"
         self.tool = Tool(
-            name="Example Plugin",
+            name="Example Module",
             uri="/example/",
             icon="/example/static/icon.png",
-            description="Example plugin",
+            description="Example module",
             priority=0,
             display=True,
         )
