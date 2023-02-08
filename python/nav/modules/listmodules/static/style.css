@@ -9,7 +9,7 @@
     /* rounded corners */
     border-radius: 5px;
     /* white background */
-    background-color: #fff; 
+    background-color: #fff;
 }
 
 .cardIcon {
@@ -71,6 +71,7 @@
     text-align: center;
 }
 
-li, ul {
+li,
+ul {
     list-style-type: none;
 }

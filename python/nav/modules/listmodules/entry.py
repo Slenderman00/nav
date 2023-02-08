@@ -1,6 +1,7 @@
 from nav.modulemanager import moduletemplate
 from nav.web.webfront.utils import Tool
 
+
 class module(moduletemplate):
     def __init__(self):
         super().__init__()
@@ -19,4 +20,3 @@ class module(moduletemplate):
             priority=0,
             display=True,
         )
-
