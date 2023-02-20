@@ -15,8 +15,9 @@
 #
 
 from django.urls import re_path
-from nav.modules.jobman.view import JobmanView
+from nav.modules.jobman.view import JobmanView, JobmanEditView
 
 urlpatterns = [
     re_path(r"^$", JobmanView.as_view(), name="jobman"),
+    re_path(r"^edit/(?P<job_id>\d+)/$", JobmanEditView.as_view(), name="jobman_edit"),
 ]

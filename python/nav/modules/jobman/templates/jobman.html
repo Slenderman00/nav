@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load tools %}
+
+{% load info %}
+{% load crispy_forms_tags %}
+{% block base_content %}
+
+{% with tool=current_user_data.tools|get_tool:'Job Manager' %}
+{% include 'nav_header.html' %}
+{% endwith %}
+
+<!--include style.css from static/style.css-->
+<link rel="stylesheet" type="text/css" href="static/style.css">
+
+
+<div id="container">
+    <center>
+        {% for job in jobs %}
+        <div class="cardBody">
+            {{ job.id }}
+            <div class="cardInfo">
+                <h3>{{ job.name }}</h3>
+                <p>{{ job.description }}</p>
+                <button id="add" onclick="window.location.href = '/jobman/edit/{{ job.id }}';" class="button1">Edit Job</button>
+            </div>
+        </div>
+        {% endfor %}
+
+        <button id="add" onclick="window.location.href = '/jobman/edit/00';" class="button1">Add Job</button>
+
+
+    </center>
+</div>
+
+
+
+
+{% endblock base_content %}

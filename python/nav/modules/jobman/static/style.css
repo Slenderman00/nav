@@ -1,0 +1,106 @@
+.nav-header {
+    margin: auto;
+    padding: 0px;
+    max-width: 1120px;
+    width: 100%;
+}
+
+#OSversion {
+    margin: auto;
+}
+
+#container {
+    margin: auto;
+    padding: 0px;
+    background-color: lightgray;
+    border: 1px solid #999999;
+    max-width: 1120px;
+    width: 100%;
+}
+
+#navbar {
+    margin: auto;
+    padding: 0px;
+    max-width: 1120px;
+    width: 100%;
+}
+
+#navbar > button {
+    margin: 0px;
+    border-width: 1px 1px 0px 1px; 
+    border-style: solid;
+    border-color: #999999;
+}
+
+#navbar > button.selected {
+    background-color: grey;
+}
+
+.button1 {
+    margin: 0px;
+    border-width: 1px 1px 0px 1px; 
+    border-style: solid;
+    border-color: #999999;
+}
+
+
+.cardBody {
+    margin-bottom: 10px;
+    /* the card parts are flex items */
+    display: flex;
+    /* card max width is 960px */
+    max-width: 960px;
+    /* grey thin border */
+    border: 1px solid #e0e0e0;
+    /* rounded corners */
+    border-radius: 5px;
+    /* white background */
+    background-color: #fff;
+}
+
+.cardInfo {
+    /* flex right */
+    flex: 1 1 auto;
+    /* description max width */
+    width: 100%;
+    /* description margin */
+    margin: 10px;
+    /* left text align */
+    text-align: left;
+}
+
+
+.formcontainer {
+    margin: auto;
+    max-width: 80%;
+}
+
+input.text {
+    width: 100%;
+    margin: auto;
+}
+
+#globsearch {
+    border-color: #999999;
+    border-width: 0px 0px 1px 0px;
+    width: 100%;
+}
+
+button.sort {
+    width: 100%;
+}
+
+#ipam {
+    margin: auto;
+    left: 0px;
+    width: 100%;
+}
+
+.navbody {
+    padding: 0px;
+}
+
+#table {
+    width: 100%;
+    margin-bottom: 0px;
+}
