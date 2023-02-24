@@ -1,20 +1,11 @@
-from nav.bootstrap import bootstrap_django
-bootstrap_django()
-
-import logging
-
 from nav.statemon.event import Event
 from nav.statemon.abstractchecker import AbstractChecker
-import argparse
 import requests
-import nav
-import os
-import django
 
 import xml.etree.ElementTree as ET
 from nav.models.manage import Arp, Netbox
 
-from datetime import datetime, timedelta
+from datetime import datetime
 
 #removes urllib error
 import urllib3
@@ -37,7 +28,7 @@ class PaloAlto():
     
     def get_arp(self):
         """Get arp table from Palo Alto"""
-        #TODO: Add function that fetches the self signed cert from the server to avoid SSL warnings
+
         print("Fetching ARP table from {}".format(self.ip))
         arp = requests.get(self.url, verify=False)
         return arp.text
